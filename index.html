@@ -15,16 +15,20 @@
 <h1>Eco-Forum</h1>
   <div class="container">
       <form id="new-post-form">
-          <input type="text" />
-          <input type="submit" />
+          <input id="new-post-title" type="text" value="title" /> 
+          <br>
+          <input id="new-post-body" type="text" value="content" />
+          <br>
+          <input id="post-submit" type="submit" />
       </form>
   </div>
 
-  <div id="posts-container">
+  <ul id="posts-container">
 
-  </div>
+  </ul>
 
   <script src="src/components/posts.js"></script>
+  <script src="src/components/post.js"></script>
   <script src="src/components/app.js"></script>
   <script src="src/adapters/PostsAdapter.js"></script>
   <script src="src/index.js"></script>
