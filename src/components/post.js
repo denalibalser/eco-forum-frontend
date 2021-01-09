@@ -2,12 +2,11 @@ class Post {
     constructor(postJSON) {
         this.id = postJSON.id
         this.title  = postJSON.title
-        //console.log(this.title)
         this.content = postJSON.content
     }
 
     renderLi() {
-        return `<p>${this.title} - ${this.content}</p>` 
+        return `<p id="post"><strong>${this.title}</strong> - ${this.content}</p>` 
     }
     
 }

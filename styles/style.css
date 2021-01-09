@@ -4,10 +4,12 @@ h1 {
 }
 
 #posts-container {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#new-post-title {
-    font: bold;
+p#post {
+    padding: 5px;
+    border: 3px;
+    border-style: solid;
+    border-color: darkslategray;
 }
