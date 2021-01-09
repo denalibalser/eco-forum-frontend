@@ -8,7 +8,7 @@ class Posts {
 
     fetchAndLoadPosts() {
         this.adapter.getPosts().then(posts => {
-            return console.log(posts)
+            posts.forEach(post => this.posts.push(post))
         })
         .then(() => {
             this.render()
@@ -17,6 +17,14 @@ class Posts {
     
     render() {
         const postsContainer = document.getElementById('posts-container')
-        postsContainer.innerHTML  = 'my  Posts Here'
+        let ul = document.createElement('ul')
+        postsContainer.appendChild(ul)
+
+        this.posts.forEach(post => {
+            let li  = document.createElement('li')
+            li.innerHTML = post.content 
+            ul.appendChild(li)
+        })
+
     }
 }
