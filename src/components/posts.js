@@ -21,9 +21,11 @@ class Posts {
 
         const title = this.newPostTitle.value //added title variable
 
-        const value = this.newPostBody.value
-        this.adapter.createPost(title, value).then(post => { //added title to createPost method call
-            this.notes.push(new Post(post))
+        const content = this.newPostBody.value
+        this.adapter.createPost(title, content).then(post => { //added title to createPost method call
+             //console.log(post)
+            this.posts.push(new Post(post))
+            
             this.render()
         })
     }
@@ -33,6 +35,7 @@ class Posts {
             posts.forEach(post => this.posts.push(new Post(post)))
         })
         .then(() => {
+            //console.log(post)
             this.render()
         })
     }

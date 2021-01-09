@@ -7,16 +7,17 @@ class PostsAdapter {
         return fetch(this.baseUrl).then(resp => resp.json())
     }
 
-    createPost(title, value) {
+    createPost(title, content) { 
         const post = {
-             body: title, value
+            title: title,
+            content: content 
         }
         return fetch(this.baseUrl, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({post})
+            body: JSON.stringify(post),
         }).then(resp => resp.json())
     }
 }
