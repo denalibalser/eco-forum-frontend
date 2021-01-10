@@ -13,3 +13,8 @@ p#post {
     border-style: solid;
     border-color: darkslategray;
 }
+
+p.editable {
+    border: 3px, red;
+    padding: 20px;
+}
