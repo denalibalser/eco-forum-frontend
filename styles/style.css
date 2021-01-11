@@ -14,9 +14,14 @@ p#post {
     border-color: darkslategray;
 }
 
-p.editable {
+/* p.editable {
     border: 3px;
     border-style: solid;
     border-color: red;
     padding: 20px;
+} */
+
+strong#post-title {
+    color: darkslategray;
+    padding: 8px;
 }

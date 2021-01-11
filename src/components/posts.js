@@ -10,18 +10,11 @@ class Posts {
         this.postsContainer = document.getElementById('posts-container')
         this.postForm = document.getElementById('new-post-form')
         this.newPostTitle = document.getElementById('new-post-title')
-
-
         this.newPostBody = document.getElementById('new-post-body')
-
-
         this.postForm.addEventListener('submit', this.createPost.bind(this))
-        //this.postsContainer.addEventListener('click', this.handlePostClick.bind(this))
         this.postsContainer.addEventListener('click', this.handlePostClick.bind(this))
-
         this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)
-        // this.newPostTitle.addEventListener('blur', this.updatePostTitle.bind(this), true)
-        // this.newPostBody.addEventListener('blur', this.updatePostContent.bind(this), true)
+        
 
 
     }
