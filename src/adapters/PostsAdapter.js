@@ -26,8 +26,7 @@ class PostsAdapter {
             title: title,
             content: content 
         }
-
-        return fetch(`${this.baseUrl}/id`, { //can't get this url working, not reading the id 
+        return fetch(`http://localhost:3001/api/v1/posts/${id}`, {  
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
