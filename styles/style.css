@@ -15,6 +15,8 @@ p#post {
 }
 
 p.editable {
-    border: 3px, red;
+    border: 3px;
+    border-style: solid;
+    border-color: red;
     padding: 20px;
 }

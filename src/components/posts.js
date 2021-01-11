@@ -13,6 +13,7 @@ class Posts {
         this.newPostBody = document.getElementById('new-post-body')
         this.postForm.addEventListener('submit', this.createPost.bind(this))
         this.postsContainer.addEventListener('click', this.handlePostClick.bind(this))
+        this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)
     }
 
     createPost(e) {
@@ -32,7 +33,18 @@ class Posts {
     handlePostClick(e) {
         const p = e.target
         p.contentEditable = true
+        p.focus()
         p.classList.add('editable')
+    }
+
+    updatePost(e) {
+        const p = e.target
+        p.contentEditable = false
+        p.classList.remove('editable')
+        const newTitle =  p.querySelector('strong').innerHTML
+        const newContent = p.innerHTML
+        const id = p.dataset.id
+        this.adapter.updatePost(newTitle, newContent, id)
     }
     
     fetchAndLoadPosts() {
