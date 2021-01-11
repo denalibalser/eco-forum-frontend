@@ -5,8 +5,9 @@ class Post {
         this.content = postJSON.content
     }
 
-    renderLi() {
-        return `<p id="post" data-id=${this.id}><strong id="post-title">${this.title}</strong> - ${this.content}</p>` 
+    renderP() {
+        return `<strong id="post-title" data-id=${this.id}>${this.title}</strong>
+        <p id="post" data-id=${this.id}> ${this.content}</p>`
     }
     
 }

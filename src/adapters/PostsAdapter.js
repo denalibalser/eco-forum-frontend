@@ -26,7 +26,7 @@ class PostsAdapter {
             title: title,
             content: content 
         }
-        return fetch(`http://localhost:3001/api/v1/posts/${id}`, {  
+        return fetch(`${this.baseUrl}/${id}`, {  
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -34,4 +34,5 @@ class PostsAdapter {
             body: JSON.stringify(post),
         }).then(resp => resp.json())
     }
+
 }
