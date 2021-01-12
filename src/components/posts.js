@@ -14,9 +14,6 @@ class Posts {
         this.postForm.addEventListener('submit', this.createPost.bind(this))
         this.postsContainer.addEventListener('click', this.handlePostClick.bind(this))
         this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)
-        
-
-
     }
 
     createPost(e) {
@@ -34,6 +31,10 @@ class Posts {
     }
 
     handlePostClick(e) {
+        this.togglePost(e)
+    }
+
+    togglePost(e) {
         const t = e.target 
         t.contentEditable = true
         t.focus()
