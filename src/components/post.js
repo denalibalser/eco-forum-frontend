@@ -11,7 +11,7 @@ class Post {
     
         <div class="container">
             <form id="new-comment-form">
-                Comment: <input id="new-comment-body" type="text" />
+                Comment: <input id="new-comment-body" data-id=${this.id} type="text" />
                 <input id="comment-submit" type="submit" />
             </form>
         </div>
