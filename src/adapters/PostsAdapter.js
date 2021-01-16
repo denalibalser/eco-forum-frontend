@@ -21,9 +21,21 @@ class PostsAdapter {
         }).then(resp => resp.json())
     }
 
-    updatePost(title, content, id) {
+    updatePostTitle(title, id) {
         const post = {
-            title: title,
+            title: title
+        }
+        return fetch(`${this.baseUrl}/${id}`, {  
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(post),
+        }).then(resp => resp.json())
+    }
+
+    updatePostContent(content, id) {
+        const post = {
             content: content 
         }
         return fetch(`${this.baseUrl}/${id}`, {  
@@ -34,5 +46,19 @@ class PostsAdapter {
             body: JSON.stringify(post),
         }).then(resp => resp.json())
     }
+
+    // updatePost(title, content, id) {
+    //     const post = {
+    //         title: title,
+    //         content: content 
+    //     }
+    //     return fetch(`${this.baseUrl}/${id}`, {  
+    //         method: 'PATCH',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(post),
+    //     }).then(resp => resp.json())
+    // }
 
 }

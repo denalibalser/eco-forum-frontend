@@ -5,21 +5,11 @@ class Post {
         this.content = postJSON.content
     }
 
-    renderP() {
-        return `<strong id="post-title" data-id=${this.id}>${this.title}</strong>
-        <p id="post" data-id=${this.id}> ${this.content}</p>
-    
-        <div class="container">
-            <form id="new-comment-form">
-                Comment: <input id="new-comment-body" data-id=${this.id} type="text" />
-                <input id="comment-submit" type="submit" />
-            </form>
-        </div>
-        <br>
-        <ul id="comments-container"> 
-
-        </ul>`
-        
+    renderP() { 
+        return ` <div id="post">
+        <strong id="post-title" data-id=${this.id}>${this.title}</strong>
+        <p id="post-content" data-id=${this.id}> ${this.content}</p>
+        </div>`
     }
     
 }
