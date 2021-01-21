@@ -6,7 +6,7 @@ class Comment {
     }
 
     renderC() {
-        return `<li id="comment" data-id="${this.post_id}">${this.body}</li>` 
+        return `<li id="comment-${this.id}" data-postId="${this.post_id}" data-id="${this.id}">${this.body}</li>` 
 
 
         // let commentsContainers = document.querySelectorAll('ul#comments-container')

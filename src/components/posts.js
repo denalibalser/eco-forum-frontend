@@ -71,6 +71,5 @@ class Posts {
     
     render() {
         this.postsContainer.innerHTML = this.posts.map(post => post.renderP()).join('')
-
     }
 }

@@ -14,14 +14,41 @@
 <body>
 <h1>Eco-Forum</h1>
   <div class="container">
-      <form id="new-post-form">
-          Title: <input id="new-post-title" type="text" /> 
+      <!-- removed onsubmit="return validateForm()" from form tag below
+    and removed onsubmit="return appendCommentFormAndContainer()"-->
+      <form id="new-post-form"> 
+          <label for="post-title">Title:</label> <span id="error-title"></span>
+          <input id="new-post-title" name="post-title"type="text" /> 
           <br>
-          Content: <input id="new-post-body" type="text" />
+          <br>
+          <label for="post-content">Content:</label><span id="error-content"></span>
+          <input id="new-post-body" name="post-content" type="text" />
+          <br>
           <br>
           <input id="post-submit" type="submit" />
       </form>
   </div>
+
+  
+
+    <!-- <script>
+        function validateForm(){
+            let title = document.forms["new-post-form"]["new-post-title"].value;
+            let content = document.forms["new-post-form"]["new-post-body"].value;
+            
+            if (title.length<1) {
+                document.getElementById('error-title').innerHTML = " Please Enter A Post Title *"
+            }
+
+            if (content.length<1) {
+                document.getElementById('error-content').innerHTML = " Please Enter Your Post Content *";
+            }
+
+            if(title.length<1 || content.length<1){
+       	        return false;
+            } 
+        }
+    </script> -->
 
   <ul id="posts-container">
     
