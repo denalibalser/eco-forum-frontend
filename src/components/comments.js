@@ -1,7 +1,6 @@
 class Comments {
     constructor() {
         this.comments = [] 
-        //this.posts = Post.all
         this.adapter =  new CommentsAdapter()
         this.submitCommentForms()
         this.initBindingsAndEventListeners()
@@ -18,7 +17,7 @@ class Comments {
         //this.commentForm = document.getElementById('new-comment-form') //changed from getElementsByClass
         //this.commentsContainers = document.getElementsByClassName('comments-container') //maybe queryselectorall
         //this.newCommentBodys = document.getElementsByClassName('new-comment-body')
-        this.newCommentBody = document.getElementById('new-comment-body') //how to access this? 
+        //this.newCommentBody = document.getElementById('new-comment-body') //how to access this? 
         //this.commentForm.addEventListener('submit', this.createComment.bind(this))
         //then add edit eventlistenters 
         
@@ -35,18 +34,70 @@ class Comments {
         // }
     }
 
+   
+
     submitCommentForms() {
-        window.addEventListener("load", function(event) {
-            event.preventDefault()
-            this.commentForms = document.getElementsByClassName('new-comment-form')
-            console.log(this.commentForms)
+        
+        this.commentForms = document.getElementsByClassName('new-comment-form')  
+        let commentForms = this.commentForms
+         
+        setTimeout(function(){ Array.from(commentForms).forEach((commentForm) => {
+            commentForm.addEventListener('submit', function(e){ 
+                e.preventDefault()
+               
+                this.newCommentBodies = commentForm.getElementsByClassName('new-comment-body')
+                //console.log(this.newCommentBodies)
+                Array.from(this.newCommentBodies).forEach((newCommentBody) => {
+                    //console.log(newCommentBody)
 
-            Array.from(this.commentForms).forEach((commentForm) => {
-                commentForm.addEventListener('submit', this.createComment.bind(this))
-                console.log(this.commentForm)
+                    const body = newCommentBody.value
+                    //console.log(body)
+                    const post_id = newCommentBody.dataset.id
+
+                    //console.log(Comments)
+
+                    Comments.adapter =  new CommentsAdapter()
+                    Comments.comments = [] 
+                    Comments.render = render()
+
+                    Comments.adapter.createComment(body, post_id).then(comment => { 
+                        Comments.comments.push(new Comment(comment))
+                        newCommentBody.value = ''
+                        render()
+                    })
+                    //console.log(post_id)
+                    // newCommentBody.addEventListener('blur', function(e){ //changed from newCommentBody.addEventListener('click'....)
+                    //     e.preventDefault()
+                    //     //console.log(e.target)
+                    //     let bodyInput = e.target
+                        
+                    //     //bodyInput.focus()
+                    //     const body = bodyInput.value 
+                    //     //console.log(body)
+                    //     const post_id = newCommentBody.dataset.id
+
+                    // })
+                    //console.log(newCommentBody)
+                    //const body = newCommentBody.value 
+                    //const post_id = newCommentBody.dataset.id
+                    //console.log(post_id)
+
+                })
             })
+        }) }, 2000); //maybe decrease the timout delay 
 
-        });
+        
+            
+            //console.log(this.commentForms)
+
+            
+            //console.log(Array.from(this.commentForms))
+
+            // Array.from(this.commentForms).forEach((commentForm) => {
+            //     commentForm.addEventListener('submit', this.createComment.bind(this))
+            //     //return console.log(this.commentForm)
+            // })
+
         
         //console.log(this.commentForms)
 

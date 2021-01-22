@@ -15,7 +15,7 @@ class Post {
         <div class="comment-form-container">
             <form class="new-comment-form" data-postId=${this.id} data-comment="comment-form">
                 <label for="comment-body">Comment:</label>
-                <input class="new-comment-body" type="text" name="comment-body" data-postId=${this.id} />
+                <input class="new-comment-body" type="text" name="comment-body" data-id=${this.id} />
                 <input class="comment-submit" type="submit" />
             </form>
         </div>
