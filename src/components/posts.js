@@ -13,7 +13,7 @@ class Posts {
         this.newPostBody = document.getElementById('new-post-body')
         this.postForm.addEventListener('submit', this.createPost.bind(this))
         this.postsContainer.addEventListener('click', this.handlePostClick.bind(this))
-        this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)  
+        this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)  //would like to have edit ability narrowed to just the post title and content 
     }
 
     createPost(e) {

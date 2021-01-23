@@ -20,7 +20,7 @@ class Post {
             </form>
         </div>
 
-        <div class="comments-container" data-postId=${this.id}> 
+        <div class="comments-container" data-id=${this.id}> 
 
         </div>
         `
