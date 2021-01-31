@@ -1,4 +1,4 @@
-class Comments {
+class Comments { //NEED TO  MAKE ASYNCHRONOUS  
     constructor() {
         this.comments = [] 
         this.adapter =  new CommentsAdapter()
@@ -19,31 +19,41 @@ class Comments {
         this.commentForms = document.getElementsByClassName('new-comment-form') 
         let commentForms = this.commentForms
          
-        setTimeout(function(){ Array.from(commentForms).forEach((commentForm) => {
+        setTimeout(function(){ Array.from(commentForms).forEach((commentForm) => { //maybe onload intead of setTimeout?
             commentForm.addEventListener('submit', function(e){ 
                 e.preventDefault()
-               console.log(this)
+               
                 this.newCommentBodies = commentForm.getElementsByClassName('new-comment-body')
-                //console.log(this.newCommentBodies)
                 Array.from(this.newCommentBodies).forEach((newCommentBody) => {
-                    //console.log(newCommentBody)
 
                     const body = newCommentBody.value
-                    //console.log(body)
                     const post_id = newCommentBody.dataset.id
 
-                    //console.log(Comments)
 
                     //HAVE TO FIGURE OUT HOW TO HAVE ACCESS TO CONSTRUCTOR ATTRIBUTES IN THIS SCOPE 
                     Comments.adapter =  new CommentsAdapter()
                     Comments.comments = [] //this can't work because comments array needs to be defined in constructor so that all methods can access 
-                    Comments.render = render()
+                    //Comments.render = render()
 
                     Comments.adapter.createComment(body, post_id).then(comment => { 
                         Comments.comments.push(new Comment(comment))
                         newCommentBody.value = ''
-                        render()
+                        //Comments.render() -- NEED TO FIGURE OUT HOW TO CALL RENDER METHOD SO NEW COMMENTS SHOW UP WITHOUT HAVING TO RELOAD PAGE
+                        let commentsContainers = document.getElementsByClassName('comments-container')
+                        //console.log(newCommentBody)
+                        let commentsContainersArray = Array.from(commentsContainers)
+                        //console.log(commentsContainersArray)
+                        for(let i = 0; i < commentsContainersArray.length; i++) {
+                            //console.log(commentsContainersArray[i].dataset.id)
+                            //console.log(body)
+                            if(commentsContainersArray[i].dataset.id === post_id) { //selects corresponding Post that is being commented on
+                                let newCommentLi = document.createElement('li')
+                                newCommentLi.innerHTML = body 
+                                commentsContainersArray[i].appendChild(newCommentLi) //allows submitted comment-body to append to end of correct Post's comment list-- however, upon reload still has ALL comments rendered beneath EACH post. (issue with render() method)
+                            }
+                        }
                     })
+
                 })
             })
         }) }, 2000); //maybe decrease the timout delay  
@@ -80,19 +90,58 @@ class Comments {
 
 
     render() { //need to figure out how to render comments in the appropriate post's comment-container
+        let renderedCommentsContainersArray = Array.from(this.commentsContainers) //NEED TO GET ONLY DISTINCT VALUES IN FOR LOOP
+        let commentContainerPostIdsArray = []
+        renderedCommentsContainersArray.forEach(commentContainer => commentContainerPostIdsArray.push(commentContainer.dataset.id))//Array.from(this.commentsContainers) 
         
-        Array.from(this.commentsContainers).forEach((commentsContainer) => { 
-            commentsContainer.innerHTML = this.comments.map(comment => comment.renderC()).join('')
-        })
-                   //this.comments.each(comment => {
-                   //})
-                   //console.log(commentsContainer.dataset.id)
-                //    for (let i of arr) {
-                //     if (i>25) return i;
-                //   }
-                    
-              // })
 
+        let renderedCommentsArray = this.comments
+        //console.log(renderedCommentsArray)
+        
+        let c 
+        for (c of renderedCommentsArray) {
+            console.log(c.post_id)
+            
+            
+            
+            if(c.post_id === commentContainerPostIdsArray.map(postId => postId)){
+                console.log(c)
+            }
+        }
+
+        //for(let i = 0; i < renderedCommentsArray.length; i++) {
+
+            //console.log(renderedCommentsArray[i])
+            
+            // if(renderedCommentsArray[i].post_id === renderedCommentsContainersArray.map(container => console.log(container))) {
+            //     //renderedCommentsContainersArray[i].innerHTML = comment.renderC().join('') 
+            //     //console.log(comment)
+            // }
+
+            //renderedCommentsArray.map(comments => comments.map(comment => console.log(comment.post_id)))
+            //console.log(renderedCommentsArray)
+            //console.log(renderedCommentsContainersArray[i])
+            //this.comments.forEach(comment => console.log(comment.post_id))
+
+    
+        //}
+
+        // for(let i = 0; i < renderedCommentsContainersArray.length; i++) {
+
+        //     //renderedCommentsArray.map(comments => comments.map(comment => console.log(comment.post_id)))
+        //     //console.log(renderedCommentsArray)
+        //     //console.log(renderedCommentsContainersArray[i])
+        //     //this.comments.forEach(comment => console.log(comment.post_id))
+
+        //     if(renderedCommentsContainersArray[i].dataset.id === renderedCommentsArray.map(comment => console.log(comment.post_id))) {
+        //         renderedCommentsContainersArray[i].innerHTML = comment.renderC().join('') 
+        //         //console.log(comment)
+        //     }
+        // }
+
+        // Array.from(this.commentsContainers).forEach((commentsContainer) => { 
+        //     commentsContainer.innerHTML = this.comments.map(comment => comment.renderC()).join('')
+        // })
 
     }
 }

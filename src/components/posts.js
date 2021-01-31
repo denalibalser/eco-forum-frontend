@@ -1,4 +1,4 @@
-class Posts {
+class Posts { //NEED TO MAKE ASYNCHRONOUS  
     constructor() {
         this.posts = [] 
         this.adapter =  new PostsAdapter()

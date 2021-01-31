@@ -18,7 +18,9 @@ class PostsAdapter {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(post),
-        }).then(resp => resp.json())
+        })//.then(resp => resp.json()).catch(function(err) {
+        //     console.log('Fetch problem: ' + err.message);
+        // });
     }
 
     updatePostTitle(title, id) {
