@@ -32,7 +32,7 @@ class Comments { //NEED TO  MAKE ASYNCHRONOUS
 
                     //HAVE TO FIGURE OUT HOW TO HAVE ACCESS TO CONSTRUCTOR ATTRIBUTES IN THIS SCOPE 
                     Comments.adapter =  new CommentsAdapter()
-                    Comments.comments = [] //this can't work because comments array needs to be defined in constructor so that all methods can access 
+                    Comments.comments = [] 
                     //Comments.render = render()
 
                     Comments.adapter.createComment(body, post_id).then(comment => { 
@@ -89,59 +89,16 @@ class Comments { //NEED TO  MAKE ASYNCHRONOUS
     }
 
 
-    render() { //need to figure out how to render comments in the appropriate post's comment-container
-        let renderedCommentsContainersArray = Array.from(this.commentsContainers) //NEED TO GET ONLY DISTINCT VALUES IN FOR LOOP
-        let commentContainerPostIdsArray = []
-        renderedCommentsContainersArray.forEach(commentContainer => commentContainerPostIdsArray.push(commentContainer.dataset.id))//Array.from(this.commentsContainers) 
-        
-
+    render() { 
+        let renderedCommentsContainersArray = Array.from(this.commentsContainers) 
         let renderedCommentsArray = this.comments
-        //console.log(renderedCommentsArray)
         
         let c 
-        for (c of renderedCommentsArray) {
-            console.log(c.post_id)
-            
-            
-            
-            if(c.post_id === commentContainerPostIdsArray.map(postId => postId)){
-                console.log(c)
-            }
+        for(c of renderedCommentsArray) { 
+        
+            renderedCommentsContainersArray.map(function(commentsContainer) {if(parseInt(c.post_id) === parseInt(commentsContainer.dataset.id))
+                {return commentsContainer.innerHTML = c.renderC()}
+            })
         }
-
-        //for(let i = 0; i < renderedCommentsArray.length; i++) {
-
-            //console.log(renderedCommentsArray[i])
-            
-            // if(renderedCommentsArray[i].post_id === renderedCommentsContainersArray.map(container => console.log(container))) {
-            //     //renderedCommentsContainersArray[i].innerHTML = comment.renderC().join('') 
-            //     //console.log(comment)
-            // }
-
-            //renderedCommentsArray.map(comments => comments.map(comment => console.log(comment.post_id)))
-            //console.log(renderedCommentsArray)
-            //console.log(renderedCommentsContainersArray[i])
-            //this.comments.forEach(comment => console.log(comment.post_id))
-
-    
-        //}
-
-        // for(let i = 0; i < renderedCommentsContainersArray.length; i++) {
-
-        //     //renderedCommentsArray.map(comments => comments.map(comment => console.log(comment.post_id)))
-        //     //console.log(renderedCommentsArray)
-        //     //console.log(renderedCommentsContainersArray[i])
-        //     //this.comments.forEach(comment => console.log(comment.post_id))
-
-        //     if(renderedCommentsContainersArray[i].dataset.id === renderedCommentsArray.map(comment => console.log(comment.post_id))) {
-        //         renderedCommentsContainersArray[i].innerHTML = comment.renderC().join('') 
-        //         //console.log(comment)
-        //     }
-        // }
-
-        // Array.from(this.commentsContainers).forEach((commentsContainer) => { 
-        //     commentsContainer.innerHTML = this.comments.map(comment => comment.renderC()).join('')
-        // })
-
     }
 }
