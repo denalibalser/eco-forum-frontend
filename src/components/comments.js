@@ -50,6 +50,7 @@ class Comments { //NEED TO  MAKE ASYNCHRONOUS
                                 let newCommentLi = document.createElement('li')
                                 newCommentLi.innerHTML = body 
                                 commentsContainersArray[i].appendChild(newCommentLi) //allows submitted comment-body to append to end of correct Post's comment list-- however, upon reload still has ALL comments rendered beneath EACH post. (issue with render() method)
+                                //commentsContainersArray[i].render() ????
                             }
                         }
                     })
@@ -95,9 +96,13 @@ class Comments { //NEED TO  MAKE ASYNCHRONOUS
         
         let c 
         for(c of renderedCommentsArray) { 
-        
+            let li = document.createElement('li')
+            
             renderedCommentsContainersArray.map(function(commentsContainer) {if(parseInt(c.post_id) === parseInt(commentsContainer.dataset.id))
-                {return commentsContainer.innerHTML = c.renderC()}
+                {return commentsContainer.appendChild(li)}
+
+                li.innerHTML = `${c.body}`
+
             })
         }
     }
