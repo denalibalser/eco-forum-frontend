@@ -5,20 +5,9 @@ class Comment {
         this.post_id = commentJSON.post_id
     }
 
-    renderC() {
+    renderC() { //currently not using this in comments.js MAYBE THE ISSUE WITH COMMENTS DISAPEARING WHEN SUBMITTING NEW POST????
         return `<li id="comment-${this.id}" data-postId="${this.post_id}" data-id="${this.id}">${this.body}</li>` 
 
-
-        // let commentsContainers = document.querySelectorAll('ul#comments-container')
-        // let li = document.createElement('li');
-        // li.innerHTML = `<li id="comment" data-id="${this.post_id}">${this.body}</li>`
-        // commentsContainers.forEach(container => addComment(container))
-        // function addComment(container) {
-        //     if(container.dataset.id.value === this.post_id) {
-        //        return container.appendChild(li) 
-        //     }
-        // }
-        //return `<li id="comment" data-id="${this.post_id}">${this.body}</li>` //should it be post-id? 
-    } // need to figure out how to append this to the post that  was commented on 
+    } 
     
 }
