@@ -3,20 +3,7 @@ class Post {
         this.id = postJSON.id
         this.title  = postJSON.title
         this.content = postJSON.content
-        
-        this.comments = postJSON.comments 
-        this.appendPostComments()
-        //this.comment = postJSON.comments.forEach(comment => comment.body)
-        //console.log(this.comment)
-    }
-
-    appendPostComments() {
-        let html = ''
-        //console.log(this.commentsContainers)
-        let commentLi = this.comments.forEach(comment => `<li>${comment.body}</li>`)//{
-        //     html += '<li>' + comment.body + '</li>';
-        // })
-        return commentLi
+        this.postComments = postJSON.comments 
     }
 
     renderP() { 
@@ -35,10 +22,10 @@ class Post {
         </div>
 
         <div class="comments-container" data-id=${this.id}> 
-            ${this.comments.forEach(comment => `<li>${comment.body}</li>`)}
+
+            ${this.postComments.map(comment => `<li id=${comment.id} data-id=${comment.post_id}>${comment.body}</li>`)}
+               
         </div>
         `
-    } 
+    } //have to remove commas ( , ) from between rendered comments
 }
-
-//<li id="comment-${this.comment.id}" data-postId="${this.post_id}" data-id="${this.comment.id}">${this.comments.first.body}</li>

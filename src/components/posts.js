@@ -46,7 +46,7 @@ class Posts { //NEED TO MAKE ASYNCHRONOUS
     }
     
     updatePost(e) { 
-        console.log(Array.from(this.postDivs))
+        //console.log(Array.from(this.postDivs))
 
         //Array.from(this.postDivs).forEach(postDiv => postDiv.addEventListener('click'))
         let p = e.target
