@@ -3,8 +3,8 @@ class PostsAdapter {
         this.baseUrl = 'http://localhost:3001/api/v1/posts'
     }
 
-    getPosts() { //maybe getPost() for each individual post (baseURL/`${id}`) and have method in Posts.js iterate through all existing posts and call getPost() on it????
-        return fetch(this.baseUrl).then(resp => resp.json())//.then(data => console.log(data)) // REPLACE CONSOLE.LOG WITH THIS resp.json()
+    getPosts() { 
+        return fetch(this.baseUrl).then(resp => resp.json())
     } 
 
     // getPost() {

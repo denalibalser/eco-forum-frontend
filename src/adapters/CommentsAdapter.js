@@ -3,9 +3,9 @@ class CommentsAdapter {
         this.baseUrl = 'http://localhost:3001/api/v1/comments' 
     }
 
-    getComments() {
-        return fetch(this.baseUrl).then(resp => resp.json())
-    }
+    // getComments() {
+    //     return fetch(this.baseUrl).then(resp => resp.json())
+    // }
 
     createComment(body, post_id) { 
         const comment = {

@@ -4,7 +4,7 @@ class Comments { //NEED TO  MAKE ASYNCHRONOUS
         this.adapter =  new CommentsAdapter()
         this.submitCommentForms()
         this.initBindingsAndEventListeners()
-        this.fetchAndLoadComments()
+        //this.fetchAndLoadComments()
     }
 
     initBindingsAndEventListeners() {
@@ -80,14 +80,14 @@ class Comments { //NEED TO  MAKE ASYNCHRONOUS
         })
     }
 
-    fetchAndLoadComments() { //THIS IS WORKING
-        this.adapter.getComments().then(comments => {
-            comments.forEach(comment => this.comments.push(new Comment(comment)))
-        })
-        .then(() => {
-            this.render()
-        })
-    }
+    // fetchAndLoadComments() { //THIS IS WORKING
+    //     this.adapter.getComments().then(comments => {
+    //         comments.forEach(comment => this.comments.push(new Comment(comment)))
+    //     })
+    //     .then(() => {
+    //         this.render()
+    //     })
+    // }
 
 
     render() { 
