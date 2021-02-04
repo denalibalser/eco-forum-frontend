@@ -23,9 +23,9 @@ class Post {
 
         <div class="comments-container" data-id=${this.id}> 
 
-            ${this.postComments.map(comment => `<li id=${comment.id} data-id=${comment.post_id}>${comment.body}</li>`)}
+            ${this.postComments.map(comment => `<li id=${comment.id} data-id=${comment.post_id}>${comment.body}</li>`).join(' ')}
                
         </div>
         `
-    } //have to remove commas ( , ) from between rendered comments
-}
+    } 
+} //should I have the comments-container in the comment.js file within a renderComment() method?? 

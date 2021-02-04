@@ -22,7 +22,7 @@ class Comments { //NEED TO  MAKE ASYNCHRONOUS
         setTimeout(function(){ Array.from(commentForms).forEach((commentForm) => { //maybe onload intead of setTimeout?
             commentForm.addEventListener('submit', function(e){ 
                 e.preventDefault()
-               
+
                 this.newCommentBodies = commentForm.getElementsByClassName('new-comment-body')
                 Array.from(this.newCommentBodies).forEach((newCommentBody) => {
 
@@ -36,21 +36,20 @@ class Comments { //NEED TO  MAKE ASYNCHRONOUS
                     //Comments.render = render()
 
                     Comments.adapter.createComment(body, post_id).then(comment => { 
+                        //comment.renderP()
                         Comments.comments.push(new Comment(comment))
                         newCommentBody.value = ''
-                        //Comments.render() -- NEED TO FIGURE OUT HOW TO CALL RENDER METHOD SO NEW COMMENTS SHOW UP WITHOUT HAVING TO RELOAD PAGE
+                        //Post.renderP(comment) NEED TO FIGURE OUT HOW TO RENDER COMMENTS IN SAME WAY AS WITH POSTS JSON FOR COMMENTS -- SO THE NEW COMMENT DOESNT DISAPEAR WHEN YOU SUBMIT NEW POST 
                         let commentsContainers = document.getElementsByClassName('comments-container')
-                        //console.log(newCommentBody)
+
                         let commentsContainersArray = Array.from(commentsContainers)
-                        //console.log(commentsContainersArray)
+
                         for(let i = 0; i < commentsContainersArray.length; i++) {
-                            //console.log(commentsContainersArray[i].dataset.id)
-                            //console.log(body)
+                            
                             if(commentsContainersArray[i].dataset.id === post_id) { //selects corresponding Post that is being commented on
                                 let newCommentLi = document.createElement('li')
                                 newCommentLi.innerHTML = body 
                                 commentsContainersArray[i].appendChild(newCommentLi) //allows submitted comment-body to append to end of correct Post's comment list-- however, upon reload still has ALL comments rendered beneath EACH post. (issue with render() method)
-                                //commentsContainersArray[i].render() ????
                             }
                         }
                     })
@@ -99,9 +98,10 @@ class Comments { //NEED TO  MAKE ASYNCHRONOUS
             let li = document.createElement('li')
             
             renderedCommentsContainersArray.map(function(commentsContainer) {if(parseInt(c.post_id) === parseInt(commentsContainer.dataset.id))
-                {return commentsContainer.appendChild(li)}
+                //{return commentsContainer.appendChild(li)}
+                {return commentsContainer.renderP(c)}
 
-                li.innerHTML = `${c.body}`
+                //li.innerHTML = `${c.body}`
 
             })
         }
