@@ -3,9 +3,23 @@ class Post {
         this.id = postJSON.id
         this.title  = postJSON.title
         this.content = postJSON.content
+        
+        this.comments = postJSON.comments 
+        this.appendPostComments()
+        //this.comment = postJSON.comments.forEach(comment => comment.body)
+        //console.log(this.comment)
     }
 
-    renderP() { //make the post a form?????
+    appendPostComments() {
+        let html = ''
+        //console.log(this.commentsContainers)
+        let commentLi = this.comments.forEach(comment => `<li>${comment.body}</li>`)//{
+        //     html += '<li>' + comment.body + '</li>';
+        // })
+        return commentLi
+    }
+
+    renderP() { 
         return ` <br>
         <div class="post" data-id="${this.id}">
             <h2 id="post-title" data-id=${this.id}>${this.title}</h2>
@@ -21,11 +35,10 @@ class Post {
         </div>
 
         <div class="comments-container" data-id=${this.id}> 
-
+            ${this.comments.forEach(comment => `<li>${comment.body}</li>`)}
         </div>
         `
-    }
-    
+    } 
 }
-// may need to change id='s to class='s
-//added comment-form to this, may not be best place?? 
+
+//<li id="comment-${this.comment.id}" data-postId="${this.post_id}" data-id="${this.comment.id}">${this.comments.first.body}</li>
