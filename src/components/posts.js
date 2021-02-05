@@ -13,12 +13,8 @@ class Posts { //NEED TO MAKE ASYNCHRONOUS
         this.newPostTitle = document.getElementById('new-post-title')
         this.newPostBody = document.getElementById('new-post-body')
         this.postForm.addEventListener('submit', this.createPost.bind(this))
-        //this.postsContainer.addEventListener('click', this.handlePostClick.bind(this))
-        this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)  //would like to have edit ability narrowed to just the post title and content 
-
-        this.postDivs = document.getElementsByClassName('post') //try to get updatePost click event on each of post Div
-        //this.postDivs.updatePost()
-        //this.postDivs = document.
+        this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)
+        this.postDivs = document.getElementsByClassName('post') 
         this.handlePostClick()
     }
 
@@ -46,17 +42,9 @@ class Posts { //NEED TO MAKE ASYNCHRONOUS
                 t.contentEditable = true
                 t.focus()
                 t.classList.add('editable')
-
             })
         })
         }, 1000)
-    }
-
-    togglePost(e) {
-        let t = e.target 
-        t.contentEditable = true
-        t.focus()
-        t.classList.add('editable')
     }
     
     updatePost(e) { 
@@ -80,9 +68,6 @@ class Posts { //NEED TO MAKE ASYNCHRONOUS
     
     fetchAndLoadPosts() {
         this.adapter.getPosts().then(resp => {
-            //console.log(resp.posts)
-            //console.log(resp)
-            //resp.forEach(resp => this.posts.push(new Post(resp)))
             resp.posts.sort((a, b) => a.id - b.id).forEach(post => this.posts.push(new Post(post)))
             //resp.comments.forEach(commentArrays => commentArrays.forEach(commentArray => console.log(commentArray)))//Comments.comments.push(new Comment(commentArray)
             //console.log(Comments.comments)
