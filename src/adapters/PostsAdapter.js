@@ -7,10 +7,6 @@ class PostsAdapter {
         return fetch(this.baseUrl).then(resp => resp.json())
     } 
 
-    // getPost() {
-    //     return fetch(`${this.baseUrl}/${id}`).then(resp => resp.json())
-    // }
-
     createPost(title, content) { 
         const post = {
             title: title,

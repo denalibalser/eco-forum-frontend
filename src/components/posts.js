@@ -13,11 +13,13 @@ class Posts { //NEED TO MAKE ASYNCHRONOUS
         this.newPostTitle = document.getElementById('new-post-title')
         this.newPostBody = document.getElementById('new-post-body')
         this.postForm.addEventListener('submit', this.createPost.bind(this))
-        this.postsContainer.addEventListener('click', this.handlePostClick.bind(this))
+        //this.postsContainer.addEventListener('click', this.handlePostClick.bind(this))
         this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)  //would like to have edit ability narrowed to just the post title and content 
 
-        this.postDivs = document.getElementsByClassName('post')
-        
+        this.postDivs = document.getElementsByClassName('post') //try to get updatePost click event on each of post Div
+        //this.postDivs.updatePost()
+        //this.postDivs = document.
+        this.handlePostClick()
     }
 
     createPost(e) {
@@ -34,8 +36,20 @@ class Posts { //NEED TO MAKE ASYNCHRONOUS
         })
     }
 
-    handlePostClick(e) {
-        this.togglePost(e)
+    handlePostClick() { 
+        let postDivs = this.postDivs
+        setTimeout(function(){ Array.from(postDivs).forEach((postDiv) => { 
+            postDiv.addEventListener('click', function(e){ 
+                e.preventDefault()
+        
+                let t = e.target 
+                t.contentEditable = true
+                t.focus()
+                t.classList.add('editable')
+
+            })
+        })
+        }, 1000)
     }
 
     togglePost(e) {
@@ -46,9 +60,7 @@ class Posts { //NEED TO MAKE ASYNCHRONOUS
     }
     
     updatePost(e) { 
-        //console.log(Array.from(this.postDivs))
 
-        //Array.from(this.postDivs).forEach(postDiv => postDiv.addEventListener('click'))
         let p = e.target
         p.contentEditable = false
         p.classList.remove('editable')
@@ -71,7 +83,7 @@ class Posts { //NEED TO MAKE ASYNCHRONOUS
             //console.log(resp.posts)
             //console.log(resp)
             //resp.forEach(resp => this.posts.push(new Post(resp)))
-            resp.posts.forEach(post => this.posts.push(new Post(post)))
+            resp.posts.sort((a, b) => a.id - b.id).forEach(post => this.posts.push(new Post(post)))
             //resp.comments.forEach(commentArrays => commentArrays.forEach(commentArray => console.log(commentArray)))//Comments.comments.push(new Comment(commentArray)
             //console.log(Comments.comments)
         })

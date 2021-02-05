@@ -12,7 +12,7 @@ class Post {
             <h2 id="post-title" data-id=${this.id}>${this.title}</h2>
             <p id="post-content" data-id=${this.id}> ${this.content}</p>
         </div>
-        
+
         <div class="comment-form-container">
             <form class="new-comment-form" data-postId=${this.id} data-comment="comment-form">
                 <label for="comment-body">Feedback:</label>
@@ -28,4 +28,5 @@ class Post {
         </div>
         `
     } 
+    
 } //should I have the comments-container in the comment.js file within a renderComment() method?? 

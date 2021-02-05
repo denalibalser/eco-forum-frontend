@@ -2,17 +2,16 @@ class Comments { //NEED TO  MAKE ASYNCHRONOUS
     constructor() {
         this.comments = [] 
         this.adapter =  new CommentsAdapter()
-        this.submitCommentForms()
+        // this.submitCommentForms()
         this.initBindingsAndEventListeners()
         //this.fetchAndLoadComments()
     }
 
     initBindingsAndEventListeners() {
         this.commentsContainers = document.getElementsByClassName('comments-container')
-        
-    }
+        this.submitCommentForms()
 
-   
+    }
 
     submitCommentForms() {
         
@@ -80,8 +79,8 @@ class Comments { //NEED TO  MAKE ASYNCHRONOUS
     }
 
     // fetchAndLoadComments() { //THIS IS WORKING
-    //     this.adapter.getComments().then(comments => {
-    //         comments.forEach(comment => this.comments.push(new Comment(comment)))
+    //     Posts.adapter.getPosts().then(resp => {
+    //         resp.comments.forEach(comment => this.comments.push(new Comment(comment)))
     //     })
     //     .then(() => {
     //         this.render()
