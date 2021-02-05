@@ -8,11 +8,15 @@ class Post {
 
     renderP() { 
         return ` <br>
-        <div class="post" data-id="${this.id}">
-            <h2 id="post-title" data-id=${this.id}>${this.title}</h2>
-            <p id="post-content" data-id=${this.id}> ${this.content}</p>
-        </div>
+        <div class="blurred-box">
 
+            <div class="post" data-id="${this.id}">
+                <h2 id="post-title" data-id=${this.id}>${this.title}</h2>
+                <p id="post-content" data-id=${this.id}> ${this.content}</p>
+            </div>
+
+        </div>
+        <br>
         <div class="comment-form-container">
             <form class="new-comment-form" data-postId=${this.id} data-comment="comment-form">
                 <label for="comment-body">Feedback:</label>
@@ -20,7 +24,7 @@ class Post {
                 <input class="comment-submit" type="submit" />
             </form>
         </div>
-
+        <br> 
         <div class="comments-container" data-id=${this.id}> 
 
             ${this.postComments.map(comment => `<li id=${comment.id} data-id=${comment.post_id}>${comment.body}</li>`).join(' ')}

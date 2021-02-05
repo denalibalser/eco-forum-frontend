@@ -1,4 +1,4 @@
-class Posts { //NEED TO MAKE ASYNCHRONOUS  
+class Posts {  
     constructor() {
         this.posts = [] 
         //this.comments = []
