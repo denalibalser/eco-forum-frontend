@@ -45,7 +45,7 @@ class Comments {
 
                         for(let i = 0; i < commentsContainersArray.length; i++) {
                             
-                            if(commentsContainersArray[i].dataset.id === post_id) { //selects corresponding Post that is being commented on
+                            if(commentsContainersArray[i].dataset.id === post_id && body != "") { //selects corresponding Post that is being commented on
                                 let newCommentLi = document.createElement('li')
                                 newCommentLi.innerHTML = body 
                                 commentsContainersArray[i].appendChild(newCommentLi) //allows submitted comment-body to append to end of correct Post's comment list

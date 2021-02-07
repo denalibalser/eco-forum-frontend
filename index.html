@@ -9,39 +9,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="styles/style.css" rel="stylesheet" type="text/css">
-
   
-  <script type="text/javascript"> //these validations are not working anymore!
+  <script type="text/javascript"> 
     function validate_post_form() {
         let valid_post = true;
 
-        //console.log(event.target.post_title.value)
         if ( document.new_post_form.post_title.value == "" ){
             alert ( "Please fill in the 'Title' box." );
-            valid_post = false;
-            returnToPreviousPage() 
         }
 
-        if ( document.new_post_form.post_content.value == "" ){
+        else if ( document.new_post_form.post_content.value == "" ){
             alert ( "Please fill in the 'Content' box." );
-            valid_post = false;
-            returnToPreviousPage()
         }
-        return valid_post;
     };
 
     function validate_comment_form() {
-        let valid_comment = true;
-    
         if ( event.target.comment_body.value == "" ){
             alert ( "Cannot submit blank comment." );
-            valid_comment = false;
-            returnToPreviousPage()
         }
-        return valid_comment;
     };
-
-    function returnToPreviousPage() { window.history.back() }
   </script>
 
 </head>

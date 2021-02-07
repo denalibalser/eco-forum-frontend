@@ -49,7 +49,6 @@ class Posts {
     }
     
     updatePost(e) { 
-
         let p = e.target
         p.contentEditable = false
         p.classList.remove('editable')
@@ -77,7 +76,7 @@ class Posts {
         })
     }
     
-    render() { //if post.content/post.title do not render 
+    render() { 
         this.postsContainer.innerHTML = this.posts.map(post => post.renderP()).join('')
     }
 }
