@@ -1,4 +1,4 @@
-class Comments { //NEED TO  MAKE ASYNCHRONOUS  
+class Comments {  
     constructor() {
         this.comments = [] 
         this.adapter =  new CommentsAdapter()
@@ -48,14 +48,14 @@ class Comments { //NEED TO  MAKE ASYNCHRONOUS
                             if(commentsContainersArray[i].dataset.id === post_id) { //selects corresponding Post that is being commented on
                                 let newCommentLi = document.createElement('li')
                                 newCommentLi.innerHTML = body 
-                                commentsContainersArray[i].appendChild(newCommentLi) //allows submitted comment-body to append to end of correct Post's comment list-- however, upon reload still has ALL comments rendered beneath EACH post. (issue with render() method)
+                                commentsContainersArray[i].appendChild(newCommentLi) //allows submitted comment-body to append to end of correct Post's comment list
                             }
                         }
                     })
 
                 })
             })
-        }) }, 2000); //maybe decrease the timout delay  
+        }) }, 1000); //changed from 2000  
     }
     
 

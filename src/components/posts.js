@@ -1,7 +1,6 @@
 class Posts {  
     constructor() {
         this.posts = [] 
-        //this.comments = []
         this.adapter =  new PostsAdapter()
         this.initBindingsAndEventListeners()
         this.fetchAndLoadPosts()

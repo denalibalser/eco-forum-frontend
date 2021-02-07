@@ -18,9 +18,9 @@ class PostsAdapter {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(post),
-        }).then(resp => resp.json()) //.catch(function(err) {
-        //     console.log('Fetch problem: ' + err.message);
-        // });
+        }).then(resp => resp.json()).catch(function() {
+            console.log('post error');
+        });
     }
 
     updatePostTitle(title, id) {

@@ -9,6 +9,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="styles/style.css" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript">
+   
+    
+    function validate_form() {
+        let valid = true;
+    
+        if ( document.new_post_form.post_title.value == "" )
+        {
+            alert ( "Please fill in the 'Title' box." );
+            valid = false;
+            returnToPreviousPage()
+        }
+
+        if ( document.new_post_form.post_content.value == "" )
+        {
+            alert ( "Please fill in the 'Content' box." );
+            valid = false;
+            returnToPreviousPage()
+        }
+    
+        return valid;
+    }
+
+    function returnToPreviousPage() { window.history.back(); }
+    
+    </script>
+
 </head>
 
 <body>
@@ -21,16 +49,15 @@
 <br>
 <div class="blurred-box">
   <div class="post-form-container">
-      <form id="new-post-form"> 
-          <label for="post-title">Title:</label>  <!-- <span id="error-title"></span> -->
+      <form id="new-post-form" name="new_post_form" onsubmit="event.preventDefault(); return validate_form()"> 
+          <label for="post_title">Title:</label>  
           <br>
-          <input id="new-post-title" name="post-title"type="text" /> 
+          <input id="new-post-title" name="post_title" type="text" /> 
           <br>
           <br>
-          <label for="post-content">Content:</label>  <!--<span id="error-content"></span> -->
-          <!-- <input id="new-post-body" name="post-content" type="text" /> -->
+          <label for="post_content">Content:</label> 
           <br>
-          <textarea rows="5" cols="80" id="new-post-body" name="post-content"></textarea>
+          <textarea rows="5" cols="80" id="new-post-body" name="post_content"></textarea>
           <br>
           <br>
           <input id="post-submit" type="submit" />
@@ -39,13 +66,10 @@
 </div>      
 <br>
 <br>
-  <!-- <div class="blurred-box"> -->
+  
     <ul id="posts-container">
     
-     </ul>
-  <!-- </div> -->
-
-
+    </ul>
 
 
   <script src="src/components/posts.js"></script>
