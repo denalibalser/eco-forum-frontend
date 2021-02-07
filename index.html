@@ -10,36 +10,38 @@
 
   <link href="styles/style.css" rel="stylesheet" type="text/css">
 
-  <script type="text/javascript">
+  
+  <script type="text/javascript"> //these validations are not working anymore!
     function validate_post_form() {
-        let valid = true;
-    
+        let valid_post = true;
+
+        //console.log(event.target.post_title.value)
         if ( document.new_post_form.post_title.value == "" ){
             alert ( "Please fill in the 'Title' box." );
-            valid = false;
-            returnToPreviousPage()
+            valid_post = false;
+            returnToPreviousPage() 
         }
 
         if ( document.new_post_form.post_content.value == "" ){
             alert ( "Please fill in the 'Content' box." );
-            valid = false;
+            valid_post = false;
             returnToPreviousPage()
         }
-        return valid;
-    }
+        return valid_post;
+    };
 
     function validate_comment_form() {
-        let valid = true;
+        let valid_comment = true;
     
         if ( event.target.comment_body.value == "" ){
             alert ( "Cannot submit blank comment." );
-            valid = false;
+            valid_comment = false;
             returnToPreviousPage()
         }
-        return valid;
-    }
+        return valid_comment;
+    };
 
-    function returnToPreviousPage() { window.history.back(); }
+    function returnToPreviousPage() { window.history.back() }
   </script>
 
 </head>

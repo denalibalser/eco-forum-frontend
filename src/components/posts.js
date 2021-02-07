@@ -23,12 +23,14 @@ class Posts {
         let title = this.newPostTitle.value 
         let content = this.newPostBody.value
 
-        this.adapter.createPost(title, content).then(post => { 
-            this.posts.push(new Post(post))
-            this.newPostTitle.value = ''
-            this.newPostBody.value = ''
-            this.render()
-        })
+        if(title != "" && content != "") {
+            this.adapter.createPost(title, content).then(post => { 
+                this.posts.push(new Post(post))
+                this.newPostTitle.value = ''
+                this.newPostBody.value = ''
+                this.render()
+            })
+        } 
     }
 
     handlePostClick() { 
@@ -55,14 +57,13 @@ class Posts {
        if(p.id === 'post-title') {
         let newTitle = p.innerHTML
         let id = p.dataset.id 
-        this.adapter.updatePostTitle(newTitle, id)
+        if(newTitle != "") { this.adapter.updatePostTitle(newTitle, id) }
        }
        else if(p.id === 'post-content') {
         let newContent = p.innerHTML 
         let id = p.dataset.id 
-        this.adapter.updatePostContent(newContent, id) 
-       }
-        
+        if(newContent != "") { this.adapter.updatePostContent(newContent, id)  }
+       }  
     }
     
     fetchAndLoadPosts() {
@@ -76,7 +77,7 @@ class Posts {
         })
     }
     
-    render() {
+    render() { //if post.content/post.title do not render 
         this.postsContainer.innerHTML = this.posts.map(post => post.renderP()).join('')
     }
 }
