@@ -18,9 +18,9 @@ class Post {
         </div>
         <br>
         <div class="comment-form-container">
-            <form class="new-comment-form" data-postId=${this.id} data-comment="comment-form">
-                <label for="comment-body">Feedback:</label>
-                <input class="new-comment-body" type="text" name="comment-body" data-id=${this.id} />
+            <form class="new-comment-form" data-postId=${this.id} data-comment="comment-form" name="new_comment_form" onsubmit="event.preventDefault(); return validate_comment_form()">
+                <label for="comment_body">Feedback:</label>
+                <input class="new-comment-body" type="text" name="comment_body" data-id=${this.id} />
                 <input class="comment-submit" type="submit" />
             </form>
         </div>

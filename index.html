@@ -11,31 +11,36 @@
   <link href="styles/style.css" rel="stylesheet" type="text/css">
 
   <script type="text/javascript">
-   
-    
-    function validate_form() {
+    function validate_post_form() {
         let valid = true;
     
-        if ( document.new_post_form.post_title.value == "" )
-        {
+        if ( document.new_post_form.post_title.value == "" ){
             alert ( "Please fill in the 'Title' box." );
             valid = false;
             returnToPreviousPage()
         }
 
-        if ( document.new_post_form.post_content.value == "" )
-        {
+        if ( document.new_post_form.post_content.value == "" ){
             alert ( "Please fill in the 'Content' box." );
             valid = false;
             returnToPreviousPage()
         }
+        return valid;
+    }
+
+    function validate_comment_form() {
+        let valid = true;
     
+        if ( event.target.comment_body.value == "" ){
+            alert ( "Cannot submit blank comment." );
+            valid = false;
+            returnToPreviousPage()
+        }
         return valid;
     }
 
     function returnToPreviousPage() { window.history.back(); }
-    
-    </script>
+  </script>
 
 </head>
 
@@ -49,7 +54,7 @@
 <br>
 <div class="blurred-box">
   <div class="post-form-container">
-      <form id="new-post-form" name="new_post_form" onsubmit="event.preventDefault(); return validate_form()"> 
+      <form id="new-post-form" name="new_post_form" onsubmit="event.preventDefault(); return validate_post_form()"> 
           <label for="post_title">Title:</label>  
           <br>
           <input id="new-post-title" name="post_title" type="text" /> 
@@ -66,10 +71,9 @@
 </div>      
 <br>
 <br>
-  
-    <ul id="posts-container">
+<ul id="posts-container">
     
-    </ul>
+</ul>
 
 
   <script src="src/components/posts.js"></script>
@@ -81,9 +85,6 @@
   <script src="src/adapters/CommentsAdapter.js"></script>
   <script src="src/index.js"></script>
 
-
-  
-  
 </body>
 
 </html>
