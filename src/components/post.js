@@ -19,12 +19,15 @@ class Post {
         <br>
         <div class="comment-form-container">
             <form class="new-comment-form" data-postId=${this.id} data-comment="comment-form" name="new_comment_form" onsubmit="event.preventDefault(); return validate_comment_form()">
-                <label for="comment_body">Feedback:</label>
-                <input class="new-comment-body" type="text" name="comment_body" data-id=${this.id} />
+                <label for="comment_body">Leave Feedback:</label>
+                <br>
+                <textarea rows="5" cols="40" class="new-comment-body" name="comment_body" data-id=${this.id}></textarea>
+                <br>
                 <input class="comment-submit" type="submit" />
             </form>
         </div>
         <br> 
+        <br>
         <div class="comments-container" data-id=${this.id}> 
 
             ${this.postComments.map(comment => `<li id=${comment.id} data-id=${comment.post_id}>${comment.body}</li>`).join(' ')}

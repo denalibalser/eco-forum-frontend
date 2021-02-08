@@ -1,4 +1,4 @@
-h1 {
+h1, h3 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: darkslategray;
     text-align: center;
@@ -9,11 +9,6 @@ h2 {
     padding: 8px;
 }
 
-h3 {
-    color: darkslategray;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-align: center;
-}
 
 label {
     color: darkslategray;
@@ -29,6 +24,9 @@ label {
     
 }
 
+div.post, div.comment-form-container {
+    display: inline-block;
+}
 
 p#post-content {
     padding: 5px;
@@ -41,12 +39,12 @@ p#post-content {
     margin-left: 20px; 
 }
 
+
 div.comments-container {
     color: darkslategray;
     margin-left: 30px;
     margin-right: 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
 }
 
 body{
