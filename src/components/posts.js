@@ -75,6 +75,6 @@ class Posts {
     }
     
     render() { 
-        this.postsContainer.innerHTML = this.posts.map(post => post.renderP()).join('')
+        this.postsContainer.innerHTML = this.posts.sort((a, b)=> b.id -a.id).map(post => post.renderP()).join('')
     }
 }
