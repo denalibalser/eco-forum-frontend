@@ -67,7 +67,7 @@ class Posts {
     
     fetchAndLoadPosts() {
         this.adapter.getPosts().then(resp => {
-            resp.posts.sort((a, b) => a.id - b.id).forEach(post => this.posts.push(new Post(post)))
+            resp.posts.sort((a, b) => b.id - a.id).forEach(post => this.posts.push(new Post(post)))
             //resp.comments.forEach(commentArrays => commentArrays.forEach(commentArray => console.log(commentArray)))//Comments.comments.push(new Comment(commentArray)
             //console.log(Comments.comments)
         })
