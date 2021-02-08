@@ -31,6 +31,5 @@ class Post {
                
         </div>
         `
-    } 
-    
-} //should I have the comments-container in the comment.js file within a renderComment() method?? 
+    }   
+} 
