@@ -2,9 +2,7 @@ class Comments {
     constructor() {
         this.comments = [] 
         this.adapter =  new CommentsAdapter()
-        // this.submitCommentForms()
         this.initBindingsAndEventListeners()
-        //this.fetchAndLoadComments()
     }
 
     initBindingsAndEventListeners() {
@@ -18,7 +16,7 @@ class Comments {
         this.commentForms = document.getElementsByClassName('new-comment-form') 
         let commentForms = this.commentForms
          
-        setTimeout(function(){ Array.from(commentForms).forEach((commentForm) => { //maybe onload intead of setTimeout?
+        setTimeout(function(){ Array.from(commentForms).forEach((commentForm) => { 
             commentForm.addEventListener('submit', function(e){ 
                 e.preventDefault()
 
@@ -45,7 +43,7 @@ class Comments {
 
                         for(let i = 0; i < commentsContainersArray.length; i++) {
                             
-                            if(commentsContainersArray[i].dataset.id === post_id && body != "") { //selects corresponding Post that is being commented on
+                            if(commentsContainersArray[i].dataset.id === post_id && body != "") { //selects corresponding Post that is being commented on & makes sure it is not blank
                                 let newCommentLi = document.createElement('li')
                                 newCommentLi.innerHTML = body 
                                 commentsContainersArray[i].appendChild(newCommentLi) //allows submitted comment-body to append to end of correct Post's comment list
@@ -55,7 +53,7 @@ class Comments {
 
                 })
             })
-        }) }, 1000); //changed from 2000  
+        }) }, 1000);
     }
     
 
@@ -78,17 +76,7 @@ class Comments {
         })
     }
 
-    // fetchAndLoadComments() { //THIS IS WORKING
-    //     Posts.adapter.getPosts().then(resp => {
-    //         resp.comments.forEach(comment => this.comments.push(new Comment(comment)))
-    //     })
-    //     .then(() => {
-    //         this.render()
-    //     })
-    // }
-
-
-    render() { 
+    render() {  //not using currently 
         let renderedCommentsContainersArray = Array.from(this.commentsContainers) 
         let renderedCommentsArray = this.comments
         
