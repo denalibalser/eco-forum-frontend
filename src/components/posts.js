@@ -5,7 +5,6 @@ class Posts {
         this.adapter =  new PostsAdapter()
         this.fetchAndLoadPosts()
         this.initBindingsAndEventListeners()
-        this.comments = new Comments()
     }
 
     initBindingsAndEventListeners() {
@@ -36,7 +35,7 @@ class Posts {
                 this.initBindingsAndEventListeners(), true   
             )
             .then(() => {
-                new Comments()
+               new Comments()
             })
         } 
     }
