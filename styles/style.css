@@ -24,9 +24,9 @@ label {
     
 }
 
-div.post, div.comment-form-container {
+/* div.post, div.comment-form-container {
     display: inline-block;
-}
+} */
 
 p#post-content {
     padding: 5px;

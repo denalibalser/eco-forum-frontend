@@ -1,4 +1,5 @@
 class Posts {  
+   
     constructor() {
         this.posts = [] 
         this.adapter =  new PostsAdapter()
@@ -11,10 +12,13 @@ class Posts {
         this.postForm = document.getElementById('new-post-form')
         this.newPostTitle = document.getElementById('new-post-title')
         this.newPostBody = document.getElementById('new-post-body')
-        this.postForm.addEventListener('submit', this.createPost.bind(this))
-        this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)
         this.postDivs = document.getElementsByClassName('post') 
         this.handlePostClick()
+        this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)
+        this.postForm.addEventListener('submit', this.createPost.bind(this))
+        
+        
+        
     }
 
     createPost(e) {
@@ -25,10 +29,12 @@ class Posts {
 
         if(title != "" && content != "") {
             this.adapter.createPost(title, content).then(post => { 
+                // console.log(post)
+                // console.log(this)
                 this.posts.push(new Post(post))
                 this.newPostTitle.value = ''
                 this.newPostBody.value = ''
-                this.render()
+                this.render() //maybe issue here do i need to have new posts rendered differently 
             })
         } 
     }
@@ -37,7 +43,7 @@ class Posts {
         let postDivs = this.postDivs
         setTimeout(function(){ Array.from(postDivs).forEach((postDiv) => { 
             postDiv.addEventListener('click', function(e){ 
-                e.preventDefault()
+                //e.preventDefault()
         
                 let t = e.target 
                 t.contentEditable = true
@@ -75,6 +81,6 @@ class Posts {
     }
     
     render() { 
-        this.postsContainer.innerHTML = this.posts.sort((a, b)=> b.id -a.id).map(post => post.renderP()).join('')
+        this.postsContainer.innerHTML = this.posts.sort((a, b)=> b.id - a.id).map(post => post.renderP()).join('')
     }
 }

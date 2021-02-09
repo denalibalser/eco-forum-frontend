@@ -27,8 +27,7 @@ class Post {
             </form>
         </div>
         <br> 
-        <br>
-        <div class="comments-container" data-id=${this.id}> 
+        <div class="comments-container" name="comment_container" data-id=${this.id}> 
 
             ${this.postComments.map(comment => `<li id=${comment.id} data-id=${comment.post_id}>${comment.body}</li>`).join(' ')}
                
@@ -36,3 +35,4 @@ class Post {
         `
     }   
 } 
+//REMOVED FROM LINE 21: "
