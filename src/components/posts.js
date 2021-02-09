@@ -3,8 +3,9 @@ class Posts {
     constructor() {
         this.posts = [] 
         this.adapter =  new PostsAdapter()
-        this.initBindingsAndEventListeners()
         this.fetchAndLoadPosts()
+        this.initBindingsAndEventListeners()
+        this.comments = new Comments()
     }
 
     initBindingsAndEventListeners() {
@@ -15,10 +16,7 @@ class Posts {
         this.postDivs = document.getElementsByClassName('post') 
         this.handlePostClick()
         this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)
-        this.postForm.addEventListener('submit', this.createPost.bind(this))
-        
-        
-        
+        this.postForm.addEventListener('submit', this.createPost.bind(this))  
     }
 
     createPost(e) {
@@ -29,12 +27,16 @@ class Posts {
 
         if(title != "" && content != "") {
             this.adapter.createPost(title, content).then(post => { 
-                // console.log(post)
-                // console.log(this)
                 this.posts.push(new Post(post))
                 this.newPostTitle.value = ''
                 this.newPostBody.value = ''
-                this.render() //maybe issue here do i need to have new posts rendered differently 
+                this.render() 
+            })
+            .then(
+                this.initBindingsAndEventListeners(), true   
+            )
+            .then(() => {
+                new Comments()
             })
         } 
     }
@@ -43,7 +45,7 @@ class Posts {
         let postDivs = this.postDivs
         setTimeout(function(){ Array.from(postDivs).forEach((postDiv) => { 
             postDiv.addEventListener('click', function(e){ 
-                //e.preventDefault()
+                e.preventDefault()
         
                 let t = e.target 
                 t.contentEditable = true

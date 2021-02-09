@@ -7,11 +7,10 @@ class Comments {
 
     triggerSubmitComment() {
         this.submitCommentForms()
-        //(console.log(this))
 
     }
 
-    submitCommentForms() { //each individual comment 
+    submitCommentForms() { 
         
         this.commentForms = document.getElementsByClassName('new-comment-form') 
         let commentForms = this.commentForms
@@ -37,10 +36,10 @@ class Comments {
                     for(let i = 0; i < commentsContainersArray.length; i++) {
                             
                         if(commentsContainersArray[i].dataset.id === post_id && body != "") { 
-                                let newCommentLi = document.createElement('li')
-                                newCommentLi.innerHTML = body 
-                                commentsContainersArray[i].appendChild(newCommentLi) 
-                        }
+                            let newCommentLi = document.createElement('li')
+                            newCommentLi.innerHTML = body 
+                            commentsContainersArray[i].appendChild(newCommentLi) 
+                        } 
                     }
                 })
 
