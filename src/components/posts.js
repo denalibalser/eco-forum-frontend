@@ -52,7 +52,7 @@ class Posts {
                 t.classList.add('editable')
             })
         })
-        }, 1000)
+        }, 500) 
     }
     
     updatePost(e) { 
