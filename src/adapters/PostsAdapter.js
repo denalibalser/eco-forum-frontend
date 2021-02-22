@@ -47,4 +47,13 @@ class PostsAdapter {
         }).then(resp => resp.json())
     }
 
+    deletePost(id) {
+        fetch(`${this.baseUrl}/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+    }
+
 }

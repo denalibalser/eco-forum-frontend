@@ -13,6 +13,7 @@ class Post {
             <div class="post" data-id="${this.id}">
                 <h2 id="post-title" data-id=${this.id}>${this.title}</h2>
                 <p id="post-content" data-id=${this.id}> ${this.content}</p>
+                <button data-id="${this.id}" class="delete-button">Delete Post</button>
             </div>
 
         </div>

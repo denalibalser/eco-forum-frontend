@@ -13,6 +13,8 @@ class Posts {
         this.newPostTitle = document.getElementById('new-post-title')
         this.newPostBody = document.getElementById('new-post-body')
         this.postDivs = document.getElementsByClassName('post') 
+        this.deleteButtons = document.getElementsByClassName('delete-button')
+        this.deletePost()
         this.handlePostClick()
         this.postsContainer.addEventListener('blur', this.updatePost.bind(this), true)
         this.postForm.addEventListener('submit', this.createPost.bind(this))  
@@ -35,6 +37,20 @@ class Posts {
                document.location.reload()
             })
         } 
+    }
+
+    deletePost() {
+        let deleteButtons = this.deleteButtons
+        setTimeout(function(){ Array.from(deleteButtons).forEach((deleteButton) => { 
+            deleteButton.addEventListener('click', function(e){ 
+                e.preventDefault()
+                Posts.adapter = new PostsAdapter
+                Posts.adapter.deletePost(e.target.dataset.id)
+                //deleteButton.parentElement.remove() 
+                console.log(deleteButton.parentElement)
+            })
+        })
+        }, 500)         
     }
 
     handlePostClick() { 
