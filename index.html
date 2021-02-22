@@ -11,20 +11,20 @@
   <link href="styles/style.css" rel="stylesheet" type="text/css">
   
   <script type="text/javascript"> 
-    function validate_post_form() {
-        let valid_post = true;
 
-        if ( document.new_post_form.post_title.value == "" ){
+    function validate_post_form() {
+
+        if ( document.new_post_form.post_title.value === "" ){
             alert ( "Please fill in the 'Title' box." );
         }
 
-        else if ( document.new_post_form.post_content.value == "" ){
+        else if ( document.new_post_form.post_content.value === "" ){
             alert ( "Please fill in the 'Content' box." );
         }
     };
 
     function validate_comment_form() {
-        if ( event.target.comment_body.value == "" ){
+        if ( event.target.comment_body.value === "" ){
             alert ( "Cannot submit blank comment." );
         }
     };
@@ -64,12 +64,9 @@
     
 </ul>
 
-<!-- maybe these scripts are not in correct?? -->
   <script src="src/components/posts.js"></script>
   <script src="src/components/comments.js"></script>
-  <script src="src/components/post.js"></script>
-  
-  <script src="src/components/comment.js"></script>
+  <script src="src/components/post.js"></script>  
   <script src="src/components/app.js"></script>
   <script src="src/adapters/PostsAdapter.js"></script>
   <script src="src/adapters/CommentsAdapter.js"></script>

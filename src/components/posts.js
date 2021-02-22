@@ -24,18 +24,15 @@ class Posts {
         let title = this.newPostTitle.value 
         let content = this.newPostBody.value
 
-        if(title != "" && content != "") {
+        if(title !== "" && content !== "") {
             this.adapter.createPost(title, content).then(post => { 
                 this.posts.push(new Post(post))
                 this.newPostTitle.value = ''
                 this.newPostBody.value = ''
                 this.render() 
             })
-            .then(
-                this.initBindingsAndEventListeners(), true   
-            )
             .then(() => {
-               new Comments()
+               document.location.reload()
             })
         } 
     }
@@ -61,14 +58,14 @@ class Posts {
         p.classList.remove('editable')
     
        if(p.id === 'post-title') {
-        let newTitle = p.innerHTML
-        let id = p.dataset.id 
-        if(newTitle != "") { this.adapter.updatePostTitle(newTitle, id) }
-       }
+            let newTitle = p.innerHTML
+            let id = p.dataset.id 
+            if(newTitle !== "") { this.adapter.updatePostTitle(newTitle, id) }
+        }
        else if(p.id === 'post-content') {
-        let newContent = p.innerHTML 
-        let id = p.dataset.id 
-        if(newContent != "") { this.adapter.updatePostContent(newContent, id)  }
+            let newContent = p.innerHTML 
+            let id = p.dataset.id 
+            if(newContent !== "") { this.adapter.updatePostContent(newContent, id)  }
        }  
     }
     
