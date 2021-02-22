@@ -41,13 +41,14 @@ class Posts {
 
     deletePost() {
         let deleteButtons = this.deleteButtons
+        
         setTimeout(function(){ Array.from(deleteButtons).forEach((deleteButton) => { 
             deleteButton.addEventListener('click', function(e){ 
                 e.preventDefault()
                 Posts.adapter = new PostsAdapter
                 Posts.adapter.deletePost(e.target.dataset.id)
-                //deleteButton.parentElement.remove() 
-                console.log(deleteButton.parentElement)
+                let parentElement = deleteButton.parentElement
+                parentElement.parentNode.remove()                
             })
         })
         }, 500)         

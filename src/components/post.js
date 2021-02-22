@@ -8,13 +8,14 @@ class Post {
 
     renderP() { 
         return ` <br>
+        <div class="entire-post" data-id="${this.id}">
         <div class="blurred-box">
 
             <div class="post" data-id="${this.id}">
                 <h2 id="post-title" data-id=${this.id}>${this.title}</h2>
                 <p id="post-content" data-id=${this.id}> ${this.content}</p>
-                <button data-id="${this.id}" class="delete-button">Delete Post</button>
             </div>
+            <button data-id="${this.id}" class="delete-button">Delete Post</button>
 
         </div>
         <br>
@@ -32,6 +33,7 @@ class Post {
 
             ${this.postComments.map(comment => `<li id=${comment.id} data-id=${comment.post_id}>${comment.body}</li>`).join(' ')}
                
+        </div>
         </div>
         `
     }   
