@@ -9,27 +9,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="styles/style.css" rel="stylesheet" type="text/css">
-  
-  <script type="text/javascript"> 
-
-    function validate_post_form() {
-
-        if ( document.new_post_form.post_title.value === "" ){
-            alert ( "Please fill in the 'Title' box." );
-        }
-
-        else if ( document.new_post_form.post_content.value === "" ){
-            alert ( "Please fill in the 'Content' box." );
-        }
-    };
-
-    function validate_comment_form() {
-        if ( event.target.comment_body.value === "" ){
-            alert ( "Cannot submit blank comment." );
-        }
-    };
-  </script>
-
 </head>
 
 <body>
@@ -43,7 +22,7 @@
 <div class="blurred-box">
     <h2>Create Your Post</h2>
   <div class="post-form-container">
-      <form id="new-post-form" name="new_post_form" onsubmit="event.preventDefault(); return validate_post_form()"> 
+      <form id="new-post-form" name="new_post_form" onsubmit="event.preventDefault(); return validatePostForm()"> 
           <label for="post_title">Title:</label>  
           <br>
           <input id="new-post-title" name="post_title" type="text" /> 

@@ -85,17 +85,21 @@ class Posts {
             if(newContent !== "") { this.adapter.updatePostContent(newContent, id)  }
        }  
     }
-    
+
     fetchAndLoadPosts() {
         this.adapter.getPosts().then(resp => {
-            resp.posts.sort((a, b) => b.id - a.id).forEach(post => this.posts.push(new Post(post)))
+            resp.posts.forEach(post => this.posts.push(new Post(post)))            
         })
         .then(() => {
             this.render()
         })
     }
-    
+   
     render() { 
-        this.postsContainer.innerHTML = this.posts.sort((a, b)=> b.id - a.id).map(post => post.renderP()).join('')
+        this.postsContainer.innerHTML = this.posts.sort(function(a, b){
+        if(a.title < b.title){return -1}; 
+        if(a.title > b.title){return 1};
+        return 0;
+    }).map(post => post.renderP()).join('')
     }
 }

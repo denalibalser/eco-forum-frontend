@@ -20,12 +20,12 @@ class Post {
         </div>
         <br>
         <div class="comment-form-container">
-            <form class="new-comment-form" data-postId=${this.id} data-comment="comment-form" name="new_comment_form" onsubmit= "event.preventDefault(); return validate_comment_form()">
+            <form class="new-comment-form" data-postId=${this.id} data-comment="comment-form" name="new_comment_form"  onsubmit= "event.preventDefault(); return validateCommentForm(event)">
                 <label for="comment_body">Leave Feedback:</label>
                 <br>
                 <textarea rows="5" cols="40" class="new-comment-body" name="comment_body" data-id=${this.id}></textarea>
                 <br>
-                <input class="comment-submit" type="submit" />
+                <input class="comment-submit" type="submit"/>
             </form>
         </div>
         <br> 
