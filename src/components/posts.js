@@ -97,9 +97,9 @@ class Posts {
    
     render() { 
         this.postsContainer.innerHTML = this.posts.sort(function(a, b){
-        if(a.title < b.title){return -1}; 
-        if(a.title > b.title){return 1};
-        return 0;
-    }).map(post => post.renderP()).join('')
+            if(a.title.toUpperCase() < b.title.toUpperCase()){return -1}; 
+            if(a.title.toUpperCase() > b.title.toUpperCase()){return 1};
+            return 0;
+        }).map(post => post.renderP()).join('')
     }
 }
