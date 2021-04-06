@@ -5,7 +5,6 @@ class Comments {
         this.triggerSubmitComment()
     }
 
-
     triggerSubmitComment() {
         this.submitCommentForms()
     }
@@ -15,8 +14,6 @@ class Comments {
         this.commentForms = document.getElementsByClassName('new-comment-form') 
         let commentForms = this.commentForms
     
-        
-         
         setTimeout(function(){ Array.from(commentForms).forEach((commentForm) => { 
             commentForm.addEventListener('submit', function(e){ 
                 e.preventDefault()
