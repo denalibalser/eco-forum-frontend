@@ -1,6 +1,11 @@
-## Eco-Forum-Frontend
+## Eco Forum Frontend
+
+<img width="1439" alt="Screen Shot 2021-04-06 at 10 06 26 AM" src="https://user-images.githubusercontent.com/46694709/113770572-81885100-96df-11eb-92ac-68bbf2bdaa8a.png">
 
 A JavaScript frontend and Rails backend web application that allows user read, submit, and update environmental posts as well as provide feedback/reactions to the submitted posts. This is the frontend repo, you can find my backend repo here: https://github.com/denalibalser/eco-forum-backend. 
+
+
+<img width="1437" alt="Screen Shot 2021-04-06 at 1 52 01 PM" src="https://user-images.githubusercontent.com/46694709/113770714-b7c5d080-96df-11eb-867c-468ffe38208d.png">
 
 ## Getting Started
 
@@ -8,10 +13,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Prerequisites
 
-What things you need to install the software and how to install them.
-
-Node
-Rails API
+* Node
 
 ## Installation
 
