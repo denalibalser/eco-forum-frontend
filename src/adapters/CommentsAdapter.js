@@ -1,6 +1,7 @@
 class CommentsAdapter {
     constructor() {
-        this.baseUrl = 'http://localhost:3001/api/v1/comments' 
+        // this.baseUrl = 'http://localhost:3001/api/v1/comments' 
+        this.baseUrl = 'https://eco-forum-backend.herokuapp.com/'
     }
 
     createComment(body, post_id) { 
