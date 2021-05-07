@@ -27,6 +27,10 @@ To run rails server:
 To run application:
     ./eco-forum-frontend/open index.html
 
+## Production 
+To access the deployed version of this web application follow this link: 
+* [Link to Eco-Forum App](https://denalibalser.github.io/eco-forum-frontend/)
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/denalibalser/eco-forum-frontend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the code of conduct.
