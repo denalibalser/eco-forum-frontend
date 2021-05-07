@@ -1,7 +1,7 @@
 class PostsAdapter {
     constructor() {
-        this.baseUrl = 'http://localhost:3001/api/v1/posts' 
-        // this.baseUrl = 'https://eco-forum-backend.herokuapp.com/'
+        // this.baseUrl = 'http://localhost:3001/api/v1/posts' 
+        this.baseUrl = 'https://eco-forum-backend.herokuapp.com/api/v1/posts'
     }
 
     getPosts() { 
